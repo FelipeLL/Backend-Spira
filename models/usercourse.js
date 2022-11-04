@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   UserCourse.init({
-    idUser: DataTypes.INTEGER,
-    idCourse: DataTypes.INTEGER
+    idUser: { type: DataTypes.INTEGER, primaryKey: true },
+    idCourse: { type: DataTypes.INTEGER, primaryKey: true },
   }, {
     sequelize,
     modelName: 'UserCourse',

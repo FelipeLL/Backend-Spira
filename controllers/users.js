@@ -1,8 +1,13 @@
-const { User } = require("../models");
+const { User, UserCourse, Course } = require("../models");
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt');
 const saltRounds = process.env.SALT
 const SECRET = String(process.env.TOKEN_SECRET)
+UserCourse.hasMany(User, { foreignKey: "idUser" });
+Course.hasMany(UserCourse, { foreignKey: "idCourse" });
+User.belongsTo(UserCourse, { foreignKey: "idUser" });
+UserCourse.belongsTo(Course, { foreignKey: "idCourse" });
+
 
 const registerUser = async (req, res, _next) => {
   try {
@@ -75,7 +80,17 @@ const authenticateUser = async (req, res, _next) => {
 
 const getUsers = async (req, res, _next) => {
   try {
-    const users = await User.findAll({ where: { roleId: 2 } })
+    const users = await UserCourse.findAll({
+      include: [
+        {
+          model: Course,
+        },
+        {
+          model: User
+        }
+
+      ]
+    })
     res.json(users)
   } catch (error) {
     res.status(400).json({ error: error })

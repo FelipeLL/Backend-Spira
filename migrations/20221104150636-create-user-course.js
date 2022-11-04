@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
-          key: 'id',
+          key: 'idUser',
         },
         onUpdate: 'CASCADE',
       },
@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Courses',
-          key: 'id',
+          key: 'idCourse',
         },
         onUpdate: 'CASCADE',
       },
