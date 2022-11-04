@@ -38,3 +38,13 @@ user: admin@test.com
 ```bash
 password: 12
 ```
+
+## Variables de entorno 
+
+```bash
+TOKEN_SECRET="vXVH6sdmpNWjRRIqCc7rdxs01lwHzfr3"
+```
+
+```bash
+SALT=10
+```
