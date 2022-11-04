@@ -1,6 +1,6 @@
 # BACKEND - Spira
 
-## Envinroment setup
+## Configuración del entorno
 
 1. Crear la base de datos
 2. Copiar .env.example a .env and rellenar con las credenciales de su base de datos local
@@ -27,4 +27,14 @@ npx sequelize-cli db:seed:all
 
 ```bash
 npm start
+```
+
+## Credenciales administrador
+
+```bash
+user: admin@test.com
+```
+
+```bash
+password: 12
 ```
